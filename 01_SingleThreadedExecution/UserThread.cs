@@ -25,7 +25,7 @@ namespace _01_SingleThreadedExecution
 			while (true)
 			{
 				_gate.Pass(_myname, _myaddress);
-				Thread.Sleep(10);
+				//Thread.Sleep(10);
 			}
 		}
     }
