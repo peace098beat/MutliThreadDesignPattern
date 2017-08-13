@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MutliThreadDesignPattern", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_01_SingleThreadedExecution", "01_SingleThreadedExecution\_01_SingleThreadedExecution.csproj", "{A45CC56D-E841-40C7-B1D9-2F74D78C9247}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_02_Immutable", "_02_Immutable\_02_Immutable.csproj", "{FF68B7E1-411B-4E19-8ED5-5911652A13EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A45CC56D-E841-40C7-B1D9-2F74D78C9247}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A45CC56D-E841-40C7-B1D9-2F74D78C9247}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A45CC56D-E841-40C7-B1D9-2F74D78C9247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF68B7E1-411B-4E19-8ED5-5911652A13EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF68B7E1-411B-4E19-8ED5-5911652A13EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF68B7E1-411B-4E19-8ED5-5911652A13EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF68B7E1-411B-4E19-8ED5-5911652A13EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
