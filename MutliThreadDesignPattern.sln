@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MutliThreadDesignPattern", "MutliThreadDesignPattern\MutliThreadDesignPattern.csproj", "{6E8898E8-CE18-4634-853B-8197685FCC35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_01_SingleThreadedExecution", "01_SingleThreadedExecution\_01_SingleThreadedExecution.csproj", "{A45CC56D-E841-40C7-B1D9-2F74D78C9247}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_01_SingleThreadedExecution", "_01_SingleThreadedExecution\_01_SingleThreadedExecution.csproj", "{A45CC56D-E841-40C7-B1D9-2F74D78C9247}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_02_Immutable", "_02_Immutable\_02_Immutable.csproj", "{FF68B7E1-411B-4E19-8ED5-5911652A13EF}"
 EndProject
