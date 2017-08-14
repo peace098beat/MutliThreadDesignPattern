@@ -9,18 +9,14 @@ namespace _03_GuardedSuspension.MsgQueTest
 	{
 		static readonly ConcurrentQueue<T> _queue = new ConcurrentQueue<T>();
 		
-		public T RecvMsg()
+		public bool RecvMsg(out T recv)
 		{
-			var obj = default(T);
-
-			_queue.TryDequeue(out obj);
-
-			return obj;
+			return _queue.TryDequeue(out recv);
 		}
 
-		public void SendMsg(T obj)
+		public void SendMsg(T send)
 		{
-			_queue.Enqueue(obj);
+			_queue.Enqueue(send);
 		}
 	}
 }

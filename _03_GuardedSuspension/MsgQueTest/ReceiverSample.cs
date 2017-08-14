@@ -16,9 +16,8 @@ namespace _03_GuardedSuspension.MsgQueTest
 			{
 				string recvMsg = null;
 
-				while (recvMsg == null)
+				while (!_queue.RecvMsg(out recvMsg))
 				{
-					recvMsg = _queue.RecvMsg();
 					Sleep();
 				}
 
