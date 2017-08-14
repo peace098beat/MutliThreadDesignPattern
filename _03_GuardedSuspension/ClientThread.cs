@@ -9,9 +9,9 @@ namespace _03_GuardedSuspension
     class ClientThread
     {
 		readonly Random _random;
-		readonly RequestQueue _requestQueue;
+		readonly IResultQueue _requestQueue;
 
-		public ClientThread(RequestQueue requestQueue, string name, int seed)
+		public ClientThread(IResultQueue requestQueue, string name, int seed)
 		{
 			Thread.CurrentThread.Name = name;
 			_requestQueue = requestQueue;

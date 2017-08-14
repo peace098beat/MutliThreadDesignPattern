@@ -5,8 +5,8 @@ using System.Threading;
 
 namespace _03_GuardedSuspension
 {
-    class RequestQueue
-    {
+    class RequestQueue : IResultQueue
+	{
 		readonly Queue<Request> _queue = new Queue<Request>();
 		Object _lock = new Object();
 
