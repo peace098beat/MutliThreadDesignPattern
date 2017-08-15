@@ -23,7 +23,7 @@ namespace _05_Producer_Consumer
 			_random = new Random(seed);
 		}
 
-		public void Run()
+		public void Run(CancellationToken token)
 		{
 			try
 			{
@@ -32,10 +32,15 @@ namespace _05_Producer_Consumer
 					Thread.Sleep(_random.Next(1000));
 
 					string cake = "[ Cake No. " + NextId() + " by " + Thread.CurrentThread.Name + " ]";
-					_table.Put(cake);
+					_table.Put(cake, token);
 				}
 			}
-			catch(Exception ex)
+			catch (OperationCanceledException)
+			{
+				Console.WriteLine("---- PROCESS ABORT ---- {0}", DateTime.Now);
+				return;
+			}
+			catch (Exception ex)
 			{
 				Console.WriteLine(ex);
 			}

@@ -13,7 +13,8 @@ namespace _05_Producer_Consumer
 		int _head;
 		int _count;
 
-		object _lock = new object();
+		readonly object _lock = new object();
+		readonly ManualResetEventSlim _resetevent = new ManualResetEventSlim();
 
 		public Table(int count)
 		{
@@ -23,54 +24,71 @@ namespace _05_Producer_Consumer
 			_count = 0;
 		}
 
-		public void Put(string cake)
+		public void Put(string cake, CancellationToken token)
 		{
-			lock (_lock)
-			{
-				Console.WriteLine(Thread.CurrentThread.Name + " puts " + cake);
+			Console.WriteLine(Thread.CurrentThread.Name + " puts " + cake);
 
+			while (true)
+			{
+				lock (_lock)
+				{
+					if (_count < _buffer.Length)
+					{
+						break;
+					}
+					_resetevent.Reset();
+				}
 				try
 				{
-					while (_count >= _buffer.Length)
-					{
-						Monitor.Wait(_lock);
-					}
-
-					_buffer[_tail] = cake;
-					_tail = (_tail + 1) % _buffer.Length;
-					_count++;
-					Monitor.PulseAll(_lock);
+					_resetevent.Wait(Timeout.Infinite, token);
 				}
 				catch
 				{
 					throw;
 				}
 			}
-		}
 
-		public string Take()
-		{
 			lock (_lock)
 			{
+				_buffer[_tail] = cake;
+				_tail = (_tail + 1) % _buffer.Length;
+				_count++;
+				_resetevent.Set();
+			}
+		}
+
+		public string Take(CancellationToken token)
+		{
+			while (true)
+			{
+				lock (_lock)
+				{
+					if (_count > 0)
+					{
+						break;
+					}
+					_resetevent.Reset();
+				}
 				try
 				{
-					while(_count <= 0)
-					{
-						Monitor.Wait(_lock);
-					}
-
-					string cake = _buffer[_head];
-					_head = (_head + 1) % _buffer.Length;
-					_count--;
-					Monitor.PulseAll(_lock);
-
-					Console.WriteLine(Thread.CurrentThread.Name + " takes " + cake);
-					return cake;
+					_resetevent.Wait(Timeout.Infinite, token);
 				}
 				catch
 				{
 					throw;
 				}
+			}
+
+			lock (_lock)
+			{
+
+				string cake = _buffer[_head];
+				_head = (_head + 1) % _buffer.Length;
+				_count--;
+				_resetevent.Set();
+
+				Console.WriteLine(Thread.CurrentThread.Name + " takes " + cake);
+				return cake;
 			}
 		}
     }

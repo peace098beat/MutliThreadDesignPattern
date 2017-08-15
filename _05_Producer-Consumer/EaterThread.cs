@@ -17,15 +17,20 @@ namespace _05_Producer_Consumer
 			_random = new Random(seed);
 		}
 
-		public void Run()
+		public void Run(CancellationToken token)
 		{
 			try
 			{
 				while (true)
 				{
-					string cake = _table.Take();
+					string cake = _table.Take(token);
 					Thread.Sleep(_random.Next(1000));
 				}
+			}
+			catch(OperationCanceledException)
+			{
+				Console.WriteLine("---- PROCESS ABORT ---- {0}", DateTime.Now);
+				return;
 			}
 			catch(Exception ex)
 			{
