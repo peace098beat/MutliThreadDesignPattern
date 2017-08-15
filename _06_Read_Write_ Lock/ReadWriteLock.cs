@@ -16,35 +16,22 @@ namespace _06_Read_Write_Lock
 		bool _preferWriter = true;  // 書くのを優先するならtrue
 
 		object _lock = new object();
-		readonly ManualResetEventSlim _resetevent = new ManualResetEventSlim();
-
-		readonly CancellationToken _token;
-
-		public ReadWriteLock(CancellationToken token)
-		{
-			_token = token;
-		}
 
 		public void ReadLock()
 		{
-			while (true)
+			lock (_lock)
 			{
-				lock (_lock)
-				{
-					if ((_writingWriters == 0) && (!_preferWriter || (_waitingWriters == 0)))
-					{
-						break;
-					}
-					_resetevent.Reset();
-				}
 				try
 				{
-					_resetevent.Wait(Timeout.Infinite, _token);
+					while ((_writingWriters > 0) || (_preferWriter && (_waitingWriters > 0)))
+					{
+						Monitor.Wait(_lock);
+					}
 				}
 				catch { throw; }
-			}
 
-			_readingReaders++;	
+				_readingReaders++;
+			}
 		}
 
 		public void ReadUnlock()
@@ -52,42 +39,43 @@ namespace _06_Read_Write_Lock
 			lock (_lock)
 			{
 				_readingReaders--;	
+
 				_preferWriter = true;
-				_resetevent.Set();
+				Monitor.PulseAll(_lock);
 			}
 		}
 
 		public void WriteLock()
 		{
-			while (true)
+			lock (_lock)
 			{
-				lock (_lock)
-				{
-					_waitingWriters++;
-
-					if((_readingReaders == 0) && (_writingWriters == 0))
-					{
-						break;
-					}
-					_resetevent.Reset();
-				}
+				_waitingWriters++;
 				try
 				{
-					_resetevent.Wait(Timeout.Infinite, _token);
+					while ((_readingReaders > 0) || (_writingWriters > 0))
+					{
+						Monitor.Wait(_lock);
+					}
 				}
 				catch { throw; }
 				finally
 				{
-					lock (_lock)
-					{
-						_waitingWriters--;
-					}
+					_waitingWriters--;
 				}
-			}
 
-			lock (_lock)
-			{
 				_writingWriters++;
 			}
+		}
+
+		public void WriteUnlock()
+		{
+			lock (_lock)
+			{
+				_writingWriters--;
+
+				_preferWriter = false;
+				Monitor.PulseAll(_lock);
+			}
+		}
     }
 }

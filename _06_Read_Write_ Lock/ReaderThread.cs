@@ -8,10 +8,14 @@ namespace _06_Read_Write_Lock
     class ReaderThread
     {
 		readonly Data _data;
+		static int _id;
+		readonly string _name;
 
 		public ReaderThread(Data data)
 		{
 			_data = data;
+			_name = "Thread No." + _id;
+			_id++;
 		}
 
 		public void Run()
@@ -20,8 +24,8 @@ namespace _06_Read_Write_Lock
 			{
 				while (true)
 				{
-					char[] readbuf = _data.Read();
-					Console.WriteLine(Thread.CurrentThread.Name + " reads " + readbuf.ToString());
+					string readbuf = new string(_data.Read());
+					Console.WriteLine(_name + " reads " + readbuf);
 				}
 			}
 			catch(Exception ex)
