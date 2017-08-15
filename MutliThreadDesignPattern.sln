@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_03_GuardedSuspension", "_0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_04_Balking", "_04_Balking\_04_Balking.csproj", "{CBCB39C3-5083-401C-A80D-3995309C6A9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_05_Producer_Consumer", "_05_Producer-Consumer\_05_Producer_Consumer.csproj", "{8DAFFCB6-4202-4325-856E-4773A8B9EA07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CBCB39C3-5083-401C-A80D-3995309C6A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBCB39C3-5083-401C-A80D-3995309C6A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBCB39C3-5083-401C-A80D-3995309C6A9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DAFFCB6-4202-4325-856E-4773A8B9EA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DAFFCB6-4202-4325-856E-4773A8B9EA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DAFFCB6-4202-4325-856E-4773A8B9EA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DAFFCB6-4202-4325-856E-4773A8B9EA07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
