@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_02_Immutable", "_02_Immuta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_03_GuardedSuspension", "_03_GuardedSuspension\_03_GuardedSuspension.csproj", "{035C831D-9B5D-412F-AF59-82705B9D573D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_04_Balking", "_04_Balking\_04_Balking.csproj", "{CBCB39C3-5083-401C-A80D-3995309C6A9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{035C831D-9B5D-412F-AF59-82705B9D573D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{035C831D-9B5D-412F-AF59-82705B9D573D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035C831D-9B5D-412F-AF59-82705B9D573D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCB39C3-5083-401C-A80D-3995309C6A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCB39C3-5083-401C-A80D-3995309C6A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCB39C3-5083-401C-A80D-3995309C6A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCB39C3-5083-401C-A80D-3995309C6A9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
