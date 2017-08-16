@@ -8,7 +8,8 @@ namespace _06_Read_Write_Lock
     class Data
     {
 		readonly char[] _buffer;
-		readonly ReadWriteLock _rwLock = new ReadWriteLock();
+		//readonly ReadWriteLock _rwLock = new ReadWriteLock();
+		readonly ReaderWriterLockSlim _rwLock = new ReaderWriterLockSlim();
 
 		public Data(int size)
 		{
@@ -23,12 +24,12 @@ namespace _06_Read_Write_Lock
 		{
 			try
 			{
-				_rwLock.ReadLock();
+				_rwLock.EnterReadLock();
 				return DoRead();
 			}
 			finally
 			{
-				_rwLock.ReadUnlock();
+				_rwLock.ExitReadLock();
 			}
 		}
 
@@ -36,20 +37,23 @@ namespace _06_Read_Write_Lock
 		{
 			try
 			{
-				_rwLock.WriteLock();
+				_rwLock.EnterWriteLock();
 				DoWrite(c);
 			}
 			finally
 			{
-				_rwLock.WriteUnlock();
+				_rwLock.ExitWriteLock();
 			}
 		}
 
 		char[] DoRead()
 		{
 			char[] newbuf = new char[_buffer.Length];
-			Array.Copy(_buffer, newbuf, _buffer.Length);
-			Slowy();
+			for (int i = 0; i < _buffer.Length; i++)
+			{
+				newbuf[i] = _buffer[i];
+				Slowy();
+			}
 			return newbuf;
 		}
 
