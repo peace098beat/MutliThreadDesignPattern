@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_05_Producer_Consumer", "_0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_06_Read_Write_Lock", "_06_Read_Write_ Lock\_06_Read_Write_Lock.csproj", "{79169552-1FD8-47F3-B013-E1635B56D7AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_07_Thread_Per_Message", "_07_Thread_Per_Message\_07_Thread_Per_Message.csproj", "{BEED0AB4-824D-4EC7-A72A-211F0DC6E6CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{79169552-1FD8-47F3-B013-E1635B56D7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79169552-1FD8-47F3-B013-E1635B56D7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79169552-1FD8-47F3-B013-E1635B56D7AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEED0AB4-824D-4EC7-A72A-211F0DC6E6CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEED0AB4-824D-4EC7-A72A-211F0DC6E6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEED0AB4-824D-4EC7-A72A-211F0DC6E6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEED0AB4-824D-4EC7-A72A-211F0DC6E6CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
