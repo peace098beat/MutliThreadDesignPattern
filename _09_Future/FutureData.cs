@@ -1,42 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading;
+using System.Threading.Tasks;
 
 namespace _09_Future
 {
     class FutureData : IData
     {
-        RealData _realdata = null;
-        bool _ready = false;
+        Task _task;
+        RealData _realdata;
 
-        object _lock = new object();
-
-        public void SetRealData(RealData realdata)
+        public FutureData(int count, char c)
         {
-            lock (_lock)
+            _task = new Task(() =>
             {
-                if (_ready)
-                {
-                    return; // balk
-                }
-                _realdata = realdata;
-                _ready = true;
-                Monitor.PulseAll(_lock);
-            }
+                _realdata = new RealData(count, c);
+            });
+            _task.Start();
         }
 
         public string GetContext()
         {
-            lock (_lock)
-            {
-                while (!_ready)
-                {
-                    Monitor.Wait(_lock);
-                }
-
-                return _realdata.GetContext();
-            }
+            Task.Run(async () => await _task).Wait();
+            return _realdata.GetContext();
         }
     }
 }

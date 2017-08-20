@@ -11,17 +11,11 @@ namespace _09_Future
         {
             Console.WriteLine("    request(" + count + ", " + c + ") BEGIN");
 
-            var future = new FutureData();
-
-            Task.Run(() =>
-            {
-                var realdata = new RealData(count, c);
-                future.SetRealData(realdata);
-            });
+            var futureData = new FutureData(count, c);
 
             Console.WriteLine("    request(" + count + ", " + c + ") END");
 
-            return future;
+            return futureData;
         }
     }
 }
