@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_06_Read_Write_Lock", "_06_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_07_Thread_Per_Message", "_07_Thread_Per_Message\_07_Thread_Per_Message.csproj", "{BEED0AB4-824D-4EC7-A72A-211F0DC6E6CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_08_WorkerThread", "_08_WorkerThread\_08_WorkerThread.csproj", "{F1C1CD9C-EB01-42D6-8800-FCC9386AC0C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_08_WorkerThread", "_08_WorkerThread\_08_WorkerThread.csproj", "{F1C1CD9C-EB01-42D6-8800-FCC9386AC0C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_09_Future", "_09_Future\_09_Future.csproj", "{53C33598-32AD-461F-B226-9AB18B56ADC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_09_Future", "_09_Future\_09_Future.csproj", "{53C33598-32AD-461F-B226-9AB18B56ADC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_10_TwoPhaseTermination", "_10_TwoPhaseTermination\_10_TwoPhaseTermination.csproj", "{009739E3-8995-4298-A8EA-F346E3B885B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{53C33598-32AD-461F-B226-9AB18B56ADC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53C33598-32AD-461F-B226-9AB18B56ADC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53C33598-32AD-461F-B226-9AB18B56ADC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009739E3-8995-4298-A8EA-F346E3B885B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009739E3-8995-4298-A8EA-F346E3B885B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009739E3-8995-4298-A8EA-F346E3B885B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009739E3-8995-4298-A8EA-F346E3B885B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
