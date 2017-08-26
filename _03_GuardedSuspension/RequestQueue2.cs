@@ -5,13 +5,12 @@ using System.Text;
 
 namespace _03_GuardedSuspension
 {
-	/// <summary>
-	/// ConcurrentQueueを使用して実現してmi
-	/// る
-	/// </summary>
-	class RequestQueue2 : IResultQueue
+    /// <summary>
+    /// BlockingCollectionを使用して実現してみる
+    /// </summary>
+    class RequestQueue2 : IResultQueue
 	{
-		readonly ConcurrentQueue<Request> _queue = new ConcurrentQueue<Request>();
+		readonly BlockingCollection<Request> _queue = new BlockingCollection<Request>();
 
 		public Request GetRequest()
 		{
@@ -19,7 +18,7 @@ namespace _03_GuardedSuspension
 
 			try
 			{
-				while (!_queue.TryDequeue(out req)) ;
+				req = _queue.Take();
 			}
 			catch(Exception ex)
 			{
@@ -32,7 +31,7 @@ namespace _03_GuardedSuspension
 		{
 			try
 			{
-				_queue.Enqueue(request);
+				_queue.Add(request);
 			}
 			catch (Exception ex)
 			{
