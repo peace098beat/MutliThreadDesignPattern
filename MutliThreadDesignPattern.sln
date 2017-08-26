@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_09_Future", "_09_Future\_0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_10_TwoPhaseTermination", "_10_TwoPhaseTermination\_10_TwoPhaseTermination.csproj", "{009739E3-8995-4298-A8EA-F346E3B885B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_12_ActiveObject", "_12_ActiveObject\_12_ActiveObject.csproj", "{F52AE58F-E101-4E18-8944-660B34E082DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{009739E3-8995-4298-A8EA-F346E3B885B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{009739E3-8995-4298-A8EA-F346E3B885B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{009739E3-8995-4298-A8EA-F346E3B885B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F52AE58F-E101-4E18-8944-660B34E082DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F52AE58F-E101-4E18-8944-660B34E082DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F52AE58F-E101-4E18-8944-660B34E082DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F52AE58F-E101-4E18-8944-660B34E082DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
